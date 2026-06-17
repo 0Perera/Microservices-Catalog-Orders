@@ -18,7 +18,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class OrderServiceImpl implements OrderService {
 
     private final ProductsClient products;
-    // simple in-memory storage for demo
     private final Map<String, Order> storage = new ConcurrentHashMap<>();
 
     public OrderServiceImpl(ProductsClient products) {

@@ -17,7 +17,6 @@ public class BearerTokenFilter implements GlobalFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         String path = exchange.getRequest().getURI().getPath();
 
-        // allow health/actuator and eureka
         if (path.startsWith("/actuator")) {
             return chain.filter(exchange);
         }
@@ -32,6 +31,6 @@ public class BearerTokenFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return -100; // run early
+        return -100;
     }
 }
